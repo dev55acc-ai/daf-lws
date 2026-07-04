@@ -14,12 +14,27 @@ export function ProcurementForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Wire to actual submission endpoint
-    console.log("Form submitted:", formState);
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // TODO: Wire to actual submission endpoint (e.g., Resend, form service)
+      // For now, simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      console.log("Form submitted:", formState);
+      setSubmitted(true);
+    } catch (err) {
+      setError("Failed to submit brief. Please try again.");
+      console.error("Submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -183,12 +198,18 @@ export function ProcurementForm() {
       </div>
 
       <div className="pt-4">
+        {error && (
+          <div className="mb-4 px-4 py-3 border border-red-500/20 bg-red-500/5" style={{ borderRadius: 'var(--radius-interactive)' }}>
+            <p className="text-sm" style={{ color: 'var(--accent)' }}>{error}</p>
+          </div>
+        )}
         <button
           type="submit"
-          className="px-10 py-4 bg-ink text-background font-medium hover:opacity-90 transition-opacity"
+          disabled={isSubmitting}
+          className="px-10 py-4 bg-ink text-background font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           style={{ borderRadius: 'var(--radius-interactive)' }}
         >
-          Submit Brief
+          {isSubmitting ? "Submitting..." : "Submit Brief"}
         </button>
         <p className="mt-4 text-sm" style={{ color: 'var(--stone)' }}>
           A costed plan comes back within 48 hours. No obligation.
