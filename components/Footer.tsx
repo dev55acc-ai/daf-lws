@@ -32,6 +32,9 @@ export function Footer() {
               <a href="/sample-plan" className="block text-sm hover:opacity-70 transition-opacity" style={{ color: 'var(--stone)' }}>
                 Sample Plan
               </a>
+              <a href="/lifeware" className="block text-sm hover:opacity-70 transition-opacity" style={{ color: 'var(--stone)' }}>
+                Lifeware Services
+              </a>
               <a href="/designers" className="block text-sm hover:opacity-70 transition-opacity" style={{ color: 'var(--stone)' }}>
                 For Designers
               </a>
