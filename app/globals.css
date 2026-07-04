@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* OKLCH Design Tokens — from DESIGN.md */
+:root {
+  --background: oklch(0.96 0.012 55);
+  --ink: oklch(0.18 0.015 25);
+  --accent: oklch(0.48 0.16 35);
+  --stone: oklch(0.58 0.008 30);
+  --surface: oklch(0.92 0.01 50);
+  --border: oklch(0.82 0.01 45);
+}
+
+/* Tailwind v4 @theme block — consume CSS custom properties */
+@theme {
+  --color-background: var(--background);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-stone: var(--stone);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --radius-interactive: 3px;
+  --radius-container: 0;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'onum' 1;
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Typography Scale — from DESIGN.md */
+h1 {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(42px, 7.2vw, 104px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
+}
+
+h2 {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(32px, 4.8vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+blockquote {
+  hanging-punctuation: first;
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-style: italic;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* Selection */
+::selection {
+  background-color: oklch(0.48 0.16 35 / 0.2);
+  color: var(--ink);
+}
+
+/* Focus Visible — not default browser ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  h1 { font-size: 24pt; page-break-after: avoid; }
+  h2 { font-size: 18pt; page-break-after: avoid; }
+  h3 { font-size: 14pt; page-break-after: avoid; }
+
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Don't print these */
+  nav, button, .no-print {
+    display: none !important;
+  }
+}
