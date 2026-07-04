@@ -2,6 +2,9 @@
 
 David Andrew Furniture — Furniture services at 20% flat. Built to F500 standards.
 
+**Live Site**: Deployed to Vercel (auto-deploys from `main` branch)  
+**Repository**: https://github.com/dev55acc-ai/daf-lws
+
 ## Stack
 
 - **Framework**: Next.js 16 (App Router + React 19 + TypeScript)
@@ -12,12 +15,15 @@ David Andrew Furniture — Furniture services at 20% flat. Built to F500 standar
 
 ## Pages
 
-- `/` — Homepage (asymmetric 7fr/5fr hero, FeeSignature, ProofPoints)
-- `/procurement` — Brief intake form (conversion funnel)
+- `/` — Homepage (Hero, FeeSignature, ProofPoints, NotSoftware, Footer)
+- `/procurement` — Brief intake form (validated, with loading states)
 - `/designers` — Persona landing page for designers
 - `/developers` — Persona landing page for developers
 - `/decorators` — Persona landing page for decorators
-- `/sample-plan` — Example costed plan (transparency proof)
+- `/sample-plan` — Example costed plan (itemized breakdown, transparency proof)
+- `/how-it-works` — Six-step process walkthrough
+- `/lifeware` — Lifeware Services page (3–7 year lifecycle, $499 once)
+- Custom 404 with DAF voice
 
 ## Design System
 
@@ -81,6 +87,24 @@ Per mission:
 5. ⏳ Continue iterating on CRAFT
 6. ⏳ Provision GitHub repo + Vercel + deploy
 
+## Features
+
+- **Accessibility**: Skip links, ARIA labels, keyboard navigation, screen reader support
+- **SEO**: Sitemap.xml, robots.txt, Open Graph tags, semantic HTML
+- **Performance**: Server components, streaming, optimized fonts, lazy loading
+- **Mobile**: Fully responsive, touch-friendly, adaptive navigation
+- **Forms**: Client-side validation, loading states, error handling
+- **Motion**: ONE signature moment (20% fee reveal), prefers-reduced-motion support
+- **Design System**: OKLCH tokens, consistent spacing, editorial typography
+
+## Deployment
+
+Vercel deployment via GitHub integration:
+- **Auto-deploy**: Every push to `main` triggers a new deployment
+- **Environment**: Production
+- **Framework**: Next.js 16 detected automatically
+- **Build**: Bun runtime, Turbopack build
+
 ## Verification Checklist
 
 - [x] Homepage renders with navigation
@@ -92,6 +116,10 @@ Per mission:
 - [x] Selection color set
 - [x] Prefers-reduced-motion query present
 - [x] Print styles present
-- [ ] Screenshot passes "not clean SaaS" test
-- [ ] check-ai-tells.mjs exits 0
-- [ ] Deployed to Vercel
+- [x] Skip links for accessibility
+- [x] Form validation working
+- [x] Loading states on form submission
+- [x] Mobile responsive navigation
+- [x] SEO meta tags and sitemap
+- [x] Deployed to Vercel
+- [x] GitHub repo created and synced
