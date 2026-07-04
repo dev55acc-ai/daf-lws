@@ -26,6 +26,9 @@ export function Footer() {
           <div className="md:col-span-4 flex flex-col justify-end space-y-4">
             <div className="eyebrow">David Andrew Furniture</div>
             <div className="space-y-2">
+              <a href="/how-it-works" className="block text-sm hover:opacity-70 transition-opacity" style={{ color: 'var(--stone)' }}>
+                How It Works
+              </a>
               <a href="/sample-plan" className="block text-sm hover:opacity-70 transition-opacity" style={{ color: 'var(--stone)' }}>
                 Sample Plan
               </a>
