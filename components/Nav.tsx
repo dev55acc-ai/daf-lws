@@ -14,7 +14,7 @@ export function Nav() {
   ];
 
   return (
-    <nav className="px-4 sm:px-6 md:px-12 py-4 md:py-6 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-50" style={{ borderColor: 'var(--border)' }}>
+    <nav aria-label="Main navigation" className="px-4 sm:px-6 md:px-12 py-4 md:py-6 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-50" style={{ borderColor: 'var(--border)' }}>
       <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
         <Link href="/" className="eyebrow hover:opacity-70 transition-opacity duration-200 text-xs sm:text-sm flex-shrink-0">
           David Andrew Furniture

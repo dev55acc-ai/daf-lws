@@ -44,8 +44,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-ink focus:text-background"
+          style={{ borderRadius: 'var(--radius-interactive)' }}
+        >
+          Skip to main content
+        </a>
         <Nav />
-        {children}
+        <div id="main-content">{children}</div>
       </body>
     </html>
   );
