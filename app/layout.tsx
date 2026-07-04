@@ -19,6 +19,21 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "David Andrew Furniture — Furniture Services at 20% Flat",
   description: "Send us a space. A costed plan comes back — every supplier, freight line, and customs charge shown, our 20% flat fee on the last line.",
+  keywords: ["furniture procurement", "furniture services", "interior design furniture", "furniture sourcing", "commercial furniture", "residential furniture", "furniture from China", "furniture from Foshan"],
+  authors: [{ name: "David Andrew Furniture" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://davidandrewfurniture.com",
+    siteName: "David Andrew Furniture",
+    title: "David Andrew Furniture — Furniture Services at 20% Flat",
+    description: "Send us a space. A costed plan comes back — every supplier, freight line, and customs charge shown, our 20% flat fee on the last line.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "David Andrew Furniture — Furniture Services at 20% Flat",
+    description: "Send us a space. A costed plan comes back — every supplier, freight line, and customs charge shown, our 20% flat fee on the last line.",
+  },
 };
 
 export default function RootLayout({
